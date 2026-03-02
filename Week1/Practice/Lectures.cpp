@@ -31,6 +31,9 @@ int main(int argc, char* args[])
 		menuSelection = Input::GetMenuSelection(menuOptions);
 		Console::Clear();
 		 
+		Console::Write("Hello 2603 PG2!", ConsoleColor::Cyan);
+		Console::WriteLine("Batman is the best.", ConsoleColor::Yellow);
+
 		switch (menuSelection)
 		{
 		case 1:
