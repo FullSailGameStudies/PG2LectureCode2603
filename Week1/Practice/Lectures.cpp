@@ -30,7 +30,7 @@ int main(int argc, char* args[])
 		Console::Clear();
 		menuSelection = Input::GetMenuSelection(menuOptions);
 		Console::Clear();
-
+		 
 		switch (menuSelection)
 		{
 		case 1:
