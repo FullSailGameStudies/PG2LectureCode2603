@@ -283,6 +283,16 @@ void Day1::PartA_1_3()
 //
 // Part A-2.2: create the DEFINITION for CreateTargets_PartA_2
 //
+std::vector<Target> Day1::CreateTargets_PartA_2(int mapSize, int colorRange)
+{
+	std::vector<Target> targets;
+	for (size_t i = 0; i < 10; i++)
+	{
+		Target target{ rand() % mapSize, rand() % mapSize };
+		targets.push_back(target);
+	}
+	return targets;
+}
 
 void Day1::PartA_2()
 {
@@ -329,6 +339,7 @@ void Day1::PartA_2()
 		// Part A-2.3: Call CreateTargets_PartA_2 and store the returned vector into the "targets" variable.
 		//
 		std::vector<Target> targets;
+		targets = CreateTargets_PartA_2(mapSize, colorRange);
 
 		float scale = 0.25f;
 		Player player(&engine, scale, 1, 1);
