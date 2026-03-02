@@ -6,6 +6,8 @@
 
 int main(int argc, char* args[])
 {
+	int randomNum = rand() % 1001;//0-1000
+
 	Day2 day2;
 
 	int menuSelection = 0;
