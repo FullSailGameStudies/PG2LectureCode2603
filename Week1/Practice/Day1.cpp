@@ -150,6 +150,10 @@ void Day1::PartA_1_2()
 			//Part A-1.2: move player to a predefined Target spot (get target's location, player.move)
 			// 		HINT: explore the Player.h file to see what methods could be used.
 			//
+			for (int i = 0; i < 4; i++)
+			{
+				player.MoveDown();
+			}
 
 
 			while (!quit)
@@ -241,6 +245,12 @@ void Day1::PartA_1_3()
 			//      use the move methods of the player
 			// 		HINT: explore the Player.h file to see what methods could be used.
 			//
+			for (int i = 0; i < 5; i++)
+			{
+				player.MoveDown();
+				player.MoveRight();
+			}
+			player.MoveRight();
 
 
 			while (!quit)
