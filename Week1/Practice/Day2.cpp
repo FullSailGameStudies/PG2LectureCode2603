@@ -55,10 +55,29 @@ void Day2::PartB_1()
 	float& numRef = num;
 	float num2 = 10;
 	numRef = num2;
-	std::vector<int> nums = { 1, 2, 3 };
+	std::vector<int> nums = { 1, 2, 3, 4, 2, 2, 5, 6 };
+	auto numsIterator = nums.begin();//"points" to index 0 item
+	std::cout << *numsIterator << "\n";
+
+	numsIterator = nums.end()-1;
+	//  pointer notation:
+	//   *
+	//   ->
+	//nums.erase(nums.begin() + 1); //{ 1, 3 };
+	
+	//reverse for loop
+	for (int i = nums.size()-1;i>=0;i--)
+	{
+		if (nums[i] == 2)
+		{
+			nums.erase(nums.begin() + i);
+		}
+	}
+	
 	//the loop variable, n, is a reference to the int in the vector
-	for (int& n : nums) {
-		n *= 2; //modifies the int in the vector
+	for(std::vector<int>::iterator iter=nums.begin();iter != nums.end(); iter++)
+	{
+		std::cout << *iter << " ";
 	}
 
 	//Screen dimension constants
