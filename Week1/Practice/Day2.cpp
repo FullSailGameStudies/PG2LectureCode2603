@@ -27,8 +27,16 @@ void Day2::GetLights(std::vector<Target>& lights)
 }
 
 //
-// Part B-2.2: Add a method definition for GetLights
+// Part B-2.2: Add a method definition for DrawLights
 //
+void Day2::DrawLights(const std::vector<Target>& lights, const Map& map) const
+{
+	for (auto& target : lights)
+	{
+		map.DrawCell(target.col, target.row, target.red, target.green, target.blue);
+	}
+}
+
 
 //
 // Part B-3.2: Add a method definition for EraseLights
@@ -128,6 +136,7 @@ void Day2::PartB_2()
 		//
 		// Part B-1.3: call GetLights
 		//
+		GetLights(lights);
 
 		Map map(engine.Renderer(), 10);
 
@@ -148,6 +157,7 @@ void Day2::PartB_2()
 			//
 			// Part B-2.3: call DrawLights
 			//
+			DrawLights(lights, map);
 
 			//Update screen
 			engine.Present();

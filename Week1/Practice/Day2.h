@@ -34,6 +34,7 @@ private:
 	//
 	// Part B-2.1: Add a method declaration for DrawLights
 	//
+	void DrawLights(const std::vector<Target>& lights,const Map& map) const;
 
 	//
 	// Part B-3.1: Add a method declaration for EraseLights
