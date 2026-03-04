@@ -1,7 +1,8 @@
 #pragma once
-#include <vector>
-#include "Target.h"
 #include "Map.h"
+#include "Target.h"
+#include <string>
+#include <vector>
 
 class Day2
 {
@@ -10,7 +11,21 @@ public:
 	void PartB_2();
 	void PartB_3();
 
+	const std::string& GetName() const
+	{
+		std::string nm = "Bruce Wayne";
+		return name;
+	}
+	void SetName(const std::string& nm)
+	{
+		name = nm;
+	}
+	void CopyName(std::string& nm) const
+	{
+		nm = name;
+	}
 private:
+	std::string name;
 	//
 	// Part B-1.1: Add a method declaration for GetLights
 	//
