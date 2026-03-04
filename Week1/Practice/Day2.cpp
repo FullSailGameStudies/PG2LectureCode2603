@@ -7,6 +7,24 @@
 //
 // Part B-1.2: Add a method definition for GetLights
 //
+void Day2::GetLights(std::vector<Target>& lights)
+{
+	for (int col = 0; col < 48; col++)
+	{
+		for (int row = 0; row < 48; row++)
+		{
+			Target light;
+			light.row = row;
+			light.col = col;
+
+			light.red = rand() % 256;//0-255
+			light.green = rand() % 256;//0-255
+			light.blue = rand() % 256;//0-255
+
+			lights.push_back(light);
+		}
+	}
+}
 
 //
 // Part B-2.2: Add a method definition for GetLights
@@ -16,8 +34,25 @@
 // Part B-3.2: Add a method definition for EraseLights
 //
 
+void PrintNum(float& numRef)//pass by REFERENCE (ALIAS)
+{
+	numRef++;
+	std::cout << numRef << "\n";
+}
 void Day2::PartB_1()
 {
+	float num = 5.3f;
+	PrintNum(num);
+	std::cout << num << "\n";
+	float& numRef = num;
+	float num2 = 10;
+	numRef = num2;
+	std::vector<int> nums = { 1, 2, 3 };
+	//the loop variable, n, is a reference to the int in the vector
+	for (int& n : nums) {
+		n *= 2; //modifies the int in the vector
+	}
+
 	//Screen dimension constants
 	const int SCREEN_WIDTH = 480;
 	const int SCREEN_HEIGHT = 480;
@@ -40,6 +75,7 @@ void Day2::PartB_1()
 		//
 		// Part B-1.3: call GetLights
 		//
+		GetLights(lights);
 
 		Map map(engine.Renderer(), 10);
 

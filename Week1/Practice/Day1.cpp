@@ -286,7 +286,7 @@ void Day1::PartA_1_3()
 std::vector<Target> Day1::CreateTargets_PartA_2(int mapSize, int colorRange)
 {
 	std::vector<Target> targets;
-	for (size_t i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		Target target{ rand() % mapSize, rand() % mapSize };
 		targets.push_back(target);
