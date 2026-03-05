@@ -41,6 +41,14 @@ void Day2::DrawLights(const std::vector<Target>& lights, const Map& map) const
 //
 // Part B-3.2: Add a method definition for EraseLights
 //
+void Day2::EraseLights(std::vector<Target>& lights)
+{
+	for (int i = static_cast<int>(lights.size()) - 1; i >= 0; i--)
+	{
+		if (lights[i].red < 100)
+			lights.erase(lights.begin() + i);
+	}
+}
 
 void PrintNum(float& numRef)//pass by REFERENCE (ALIAS)
 {
@@ -208,10 +216,12 @@ void Day2::PartB_3()
 		//
 		// Part B-1.3: call GetLights
 		//
+		GetLights(lights);
 
 		//
 		// Part B-3.3: call EraseLights
 		//
+		EraseLights(lights);
 
 
 		Map map(engine.Renderer(), 10);
@@ -233,6 +243,7 @@ void Day2::PartB_3()
 			//
 			// Part B-2.3: call DrawLights
 			//
+			DrawLights(lights, map);
 
 			//Update screen
 			engine.Present();
