@@ -41,11 +41,11 @@ void Day2::DrawLights(const std::vector<Target>& lights, const Map& map) const
 //
 // Part B-3.2: Add a method definition for EraseLights
 //
-void Day2::EraseLights(std::vector<Target>& lights)
+void Day2::EraseLights(std::vector<Target>& lights) const
 {
 	for (int i = static_cast<int>(lights.size()) - 1; i >= 0; i--)
 	{
-		if (lights[i].red < 100)
+		if (lights[i].red > 100)
 			lights.erase(lights.begin() + i);
 	}
 }

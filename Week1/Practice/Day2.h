@@ -39,7 +39,7 @@ private:
 	//
 	// Part B-3.1: Add a method declaration for EraseLights
 	//
-	void EraseLights(std::vector<Target>& lights);
+	void EraseLights(std::vector<Target>& lights) const;
 
 };
 
