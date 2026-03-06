@@ -24,6 +24,8 @@ public:
 	{
 		nm = name;
 	}
+
+	void PrintNum(const float& numRef, std::string prefix = "Monday-");
 private:
 	std::string name;
 	//
@@ -40,6 +42,5 @@ private:
 	// Part B-3.1: Add a method declaration for EraseLights
 	//
 	void EraseLights(std::vector<Target>& lights) const;
-
 };
 

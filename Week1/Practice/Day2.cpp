@@ -50,10 +50,10 @@ void Day2::EraseLights(std::vector<Target>& lights) const
 	}
 }
 
-void PrintNum(float& numRef)//pass by REFERENCE (ALIAS)
+void Day2::PrintNum(const float& numRef, std::string prefix)//pass by REFERENCE (ALIAS)
 {
-	numRef++;
-	std::cout << numRef << "\n";
+	//numRef++;
+	std::cout << prefix << numRef << "\n";
 }
 void Day2::PartB_1()
 {

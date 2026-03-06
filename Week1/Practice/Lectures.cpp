@@ -9,6 +9,8 @@ int main(int argc, char* args[])
 	int randomNum = rand() % 1001;//0-1000
 
 	Day2 day2;
+	float myNum = 5;
+	day2.PrintNum(5, "Day3-");
 
 	int menuSelection = 0;
 	std::vector<std::string> menuOptions{
