@@ -55,6 +55,18 @@ void Day2::PrintNum(const float& numRef, std::string prefix)//pass by REFERENCE 
 	//numRef++;
 	std::cout << prefix << numRef << "\n";
 }
+void VectorInfo(const std::vector<int>& nums)
+{
+	//size() - how many items are in the vector
+	//capacity() - how big the internal array is
+	//size <= capacity
+	//when you push_back and the size would become > capacity,
+	//the vector will..
+	// 1) resize the internal array
+	// 2) copy all the items from the original array to the new array
+	// 3) get rid of the original array
+	std::cout << nums.size() << ": " << nums.capacity() << "\n";
+}
 void Day2::PartB_1()
 {
 	float num = 5.3f;
@@ -63,7 +75,14 @@ void Day2::PartB_1()
 	float& numRef = num;
 	float num2 = 10;
 	numRef = num2;
-	std::vector<int> nums = { 1, 2, 3, 4, 2, 2, 5, 6 };
+	std::vector<int> nums;// = { 1, 2, 3, 4, 2, 2, 5, 6 };
+	nums.reserve(10);//presizes the capacity
+	VectorInfo(nums); //size: 0   capacity: 1?
+	for (int i = 0; i < 10; i++)
+	{
+		nums.push_back(i);
+		VectorInfo(nums); //size:   capacity: 
+	}
 	auto numsIterator = nums.begin();//"points" to index 0 item
 	std::cout << *numsIterator << "\n";
 
