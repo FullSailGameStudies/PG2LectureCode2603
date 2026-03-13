@@ -62,7 +62,7 @@ int main(int argc, char* args[])
 	{
 		Console::Write(ch, (ConsoleColor)(rand() % 7 + 1));
 	}
-	std::cout << "\n";
+	std::cout << "\n";  
 
 	int menuSelection = 0;
 	std::vector<std::string> menuOptions{
