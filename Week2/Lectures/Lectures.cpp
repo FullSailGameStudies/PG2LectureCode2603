@@ -42,6 +42,35 @@ int main(int argc, char* args[])
 	menuPair.second = 11.99f;
 	auto wasInserted =  menu.insert(menuPair);//does NOT overwrite the value
 
+	std::string itemToFind = "Dino Nuggies";
+
+	auto findItemIter = menu.find(itemToFind);
+	if (findItemIter != menu.end())
+	{
+		std::cout << itemToFind << " costs " << findItemIter->second << "\n";
+		findItemIter->second *= 1.1f;
+		//menu[itemToFind] *= 1.1f;
+	}
+	else
+	{
+		std::cout << itemToFind << " is not on the menu.\n";
+	}
+	//2 ways to erase...
+	//1) easy way
+	//		map.erase(key);
+	menu.erase("lamb");
+
+	//2) not as easy way
+	findItemIter = menu.find("lamb");
+	if (findItemIter != menu.end())
+	{
+		menu.erase(findItemIter);
+	}
+	else
+	{
+		std::cout << itemToFind << " is not on the menu.\n";
+	}
+	
 	std::cout << "\n\nMenu: \n";
 	for (auto& pair : menu)
 	{
