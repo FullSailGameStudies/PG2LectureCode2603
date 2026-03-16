@@ -5,10 +5,16 @@
 #include "Day9.h"
 #include "Input.h"
 #include "Weapon.h"
+#include "Color.h"
 
 
 int main(int argc, char* args[])
 {
+	Color clr;
+	clr.red = 255;
+	clr.green = clr.blue = 0;
+	clr.alpha = 255;
+
 	int value = 10;
 	Weapon wpn(10, 100);//this is calling the default ctor
 	//wpn.SetRange(10);
