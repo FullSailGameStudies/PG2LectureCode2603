@@ -1,8 +1,15 @@
 #include <iostream>
 #include "Weapon.h"
 
-Weapon::Weapon(int range, int damage) : mRange(range), mDamage(damage)
+Weapon::Weapon(int range, int damage) 
+	: 
+	//member initialization list
+	mRange(range), 
+	mDamage(damage)
 {
+	//ok
+	//mRange = range;
+	//mDamage = damage;
 }
 
 void Weapon::showMe()

@@ -4,10 +4,18 @@
 #include "Day8.h"
 #include "Day9.h"
 #include "Input.h"
+#include "Weapon.h"
 
 
 int main(int argc, char* args[])
 {
+	int value = 10;
+	Weapon wpn(10, 100);//this is calling the default ctor
+	//wpn.SetRange(10);
+	//wpn.Damage(100);
+	std::cout << wpn.range() << " " << wpn.damage() << "\n";
+
+
     std::string hello = "Hello Week 3!";
     for (auto& ch : hello)
     {
