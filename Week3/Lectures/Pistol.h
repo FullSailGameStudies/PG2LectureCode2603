@@ -1,12 +1,20 @@
 #pragma once
-class Pistol
+#include "Weapon.h"
+class Pistol : public Weapon
 {
-	//access modifiers:
-	// public: 
-	//		all code can see it
-	// private: 
-	//		ONLY* this class can see it
-	// protected: 
-	//		(inheritance) my class and ALL my descendent classes can see it
+public:
+	Pistol(int range, int damage,int numRounds, int capacity)
+		: //member initialization list
+		Weapon(range, damage),
+		numRounds_(numRounds), 
+		capacity_(capacity)
+	{
+		//do NOT do the base ctor code in the derived ctor
+	}
+
+private:
+	int numRounds_, capacity_;
+
 
 };
+
