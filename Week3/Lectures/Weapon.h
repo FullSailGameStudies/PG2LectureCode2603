@@ -36,7 +36,8 @@ public:
 	//1. mark the BASE method as 'virtual'
 	virtual void showMe();
 
-	int calcDamage();
+	//pure virtual
+	virtual int calcDamage() = 0;
 
 	// Gatekeepers to the fields
 	//   the definitions can appear in the header

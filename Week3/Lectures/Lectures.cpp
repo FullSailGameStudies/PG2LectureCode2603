@@ -12,9 +12,18 @@ double add(double n1, double n2) { return n1 + n2; }
 int add(int n1, int n2) { return n1 + n2; }
 int add(int n1, int n2, int n3) { return n1 + n2 + n3; }
 
-
+void Counter()
+{
+	static int i = 0;
+	std::cout << i << " ";
+	i++;
+}
 int main(int argc, char* args[])
 {
+	for (int i = 0; i < 10; i++)
+	{
+		Counter();
+	}
 	std::cout << add(5, 2) << "\n" << add(5, 2, 10) << "\n";
 	std::cout << add(5, 2) << "\n" << add(5.2, 2.7) << "\n";
 
@@ -24,10 +33,10 @@ int main(int argc, char* args[])
 	clr.alpha = 255;
 
 	int value = 10;
-	Weapon wpn(10, 100);//this is calling the default ctor
+	//Weapon wpn(10, 100);//this is calling the default ctor
 	//wpn.SetRange(10);
 	//wpn.Damage(100);
-	std::cout << wpn.range() << " " << wpn.damage() << "\n";
+	//std::cout << wpn.range() << " " << wpn.damage() << "\n";
 
 	Pistol p1(50, 100, 10, 15);
 	Pistol p2(50, 100, 3, 15);

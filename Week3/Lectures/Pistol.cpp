@@ -13,3 +13,8 @@ void Pistol::showMe()
 
 	std::cout << "Rounds: " << numRounds_ << " Capacity: " << capacity_ << "\n";
 }
+
+int Pistol::calcDamage()
+{
+	return Weapon::calcDamage();
+}

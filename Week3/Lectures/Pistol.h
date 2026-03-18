@@ -23,6 +23,7 @@ public:
 	//2. add a new method in the derived that matches EXACTLY the base method
 	//  OPTIONAL: add the 'override' keyword to the declaration
 	void showMe() override;
+	int calcDamage() override;
 
 private:
 	int numRounds_, capacity_;
