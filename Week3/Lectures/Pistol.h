@@ -12,6 +12,18 @@ public:
 		//do NOT do the base ctor code in the derived ctor
 	}
 
+	Pistol operator+(Pistol& other)
+	{
+		Pistol newPistol(range(), damage(),
+			numRounds_ + other.numRounds_,
+			capacity_);
+		return newPistol;
+	}
+
+	//2. add a new method in the derived that matches EXACTLY the base method
+	//  OPTIONAL: add the 'override' keyword to the declaration
+	void showMe() override;
+
 private:
 	int numRounds_, capacity_;
 

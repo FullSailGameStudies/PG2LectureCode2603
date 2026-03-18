@@ -33,7 +33,9 @@ public:
 	// 
 	Weapon(int range, int damage);
 
+	//1. mark the BASE method as 'virtual'
 	virtual void showMe();
+
 	int calcDamage();
 
 	// Gatekeepers to the fields

@@ -7,7 +7,7 @@ public:
 		: face_(face), suit_(suit)
 	{}
 
-	int Value();
+	virtual int Value();
 	void Print();
 
 	const std::string& Face() const	{ return face_; }
@@ -29,10 +29,8 @@ public:
 	}
 
 
-private:
+protected:
 	std::string face_, suit_;
-
-public:
 
 };
 

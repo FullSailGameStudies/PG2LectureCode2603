@@ -6,10 +6,18 @@
 #include "Input.h"
 #include "Weapon.h"
 #include "Color.h"
+#include <Pistol.h>
+
+double add(double n1, double n2) { return n1 + n2; }
+int add(int n1, int n2) { return n1 + n2; }
+int add(int n1, int n2, int n3) { return n1 + n2 + n3; }
 
 
 int main(int argc, char* args[])
 {
+	std::cout << add(5, 2) << "\n" << add(5, 2, 10) << "\n";
+	std::cout << add(5, 2) << "\n" << add(5.2, 2.7) << "\n";
+
 	Color clr;
 	clr.red = 255;
 	clr.green = clr.blue = 0;
@@ -20,6 +28,12 @@ int main(int argc, char* args[])
 	//wpn.SetRange(10);
 	//wpn.Damage(100);
 	std::cout << wpn.range() << " " << wpn.damage() << "\n";
+
+	Pistol p1(50, 100, 10, 15);
+	Pistol p2(50, 100, 3, 15);
+	Pistol p3 = p1 + p2;
+
+	p3.showMe();
 
 
     std::string hello = "Hello Week 3!";

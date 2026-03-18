@@ -72,7 +72,7 @@ void Day8::PartB_1()
 						//
 						// TODO: Part B-1.2 Create a BlackjackCard object
 						//
-						BlackjackCard card("A", "Hearts");
+						BlackjackCard card("Q", "Hearts");
 
 						pos cardSize = GameTextures::CardSize(scale);
 						int x = 5;
@@ -83,6 +83,13 @@ void Day8::PartB_1()
 						//
 						GameTextures::RenderImage(card.Face(), card.Suit(), x, y, scale);
 
+						//
+						// TODO: Part B-1.4 
+						// call the Print method
+						// call the Value method and print the value
+						//
+						card.Print();
+						std::cout << "Value: " << card.Value() << "\n";
 
 						//Update screen
 						engine.Present();
