@@ -31,13 +31,14 @@ public:
 	//   IF you do create a CTOR,
 	//		the compiler's ctor is no longer created
 	// 
-	Weapon(int range, int damage);
+	Weapon(int range, int damage);	
+	virtual ~Weapon() = default;//destructor
 
 	//1. mark the BASE method as 'virtual'
 	virtual void showMe();
 
 	//pure virtual
-	virtual int calcDamage() = 0;
+	virtual int calcDamage();
 
 	// Gatekeepers to the fields
 	//   the definitions can appear in the header

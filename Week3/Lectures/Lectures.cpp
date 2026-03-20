@@ -7,6 +7,7 @@
 #include "Weapon.h"
 #include "Color.h"
 #include <Pistol.h>
+#include <Knife.h>
 
 double add(double n1, double n2) { return n1 + n2; }
 int add(int n1, int n2) { return n1 + n2; }
@@ -20,6 +21,28 @@ void Counter()
 }
 int main(int argc, char* args[])
 {
+	//stack variables
+	int n = 5;
+	int* nPtr = &n;//address-of
+	int& nRef = n;
+	std::cout << n << "\n";
+	std::cout << nRef << "\n";
+	std::cout << *nPtr << "\n";//* - dereferencing
+
+	//heap variables
+	//   developer-managed memory
+	//  anytime you see " = new", 
+	//    you are creating heap variables
+	int* nHeap = new int(10);
+	//whatever you "new", you MUST "delete"
+	//delete it when you don't need it anymore
+	delete nHeap;
+
+
+	//indexer 
+	//[3] means startingPtr + index * sizeoftype
+	//startingPtr++
+
 	for (int i = 0; i < 10; i++)
 	{
 		Counter();
@@ -38,9 +61,43 @@ int main(int argc, char* args[])
 	//wpn.Damage(100);
 	//std::cout << wpn.range() << " " << wpn.damage() << "\n";
 
+	Pistol* heapPistol = new Pistol(100, 200, 5, 5);
 	Pistol p1(50, 100, 10, 15);
 	Pistol p2(50, 100, 3, 15);
 	Pistol p3 = p1 + p2;
+	Weapon wpn(10, 100);
+
+	wpn = p1;//??
+	//copies the Weapon parts of p1 to wpn
+	//p1 = wpn;
+	std::vector<Weapon*> inventory;
+	inventory.push_back(new Pistol(50,100,5,10));//UPCASTING pointers
+	inventory.push_back(new Knife(3, 10, true));//UPCASTING 
+
+	std::cout << "\n\nInventory:\n";
+	for (auto& item : inventory)
+	{
+		item->showMe();//runtime polymorphism
+	}
+
+	//cleanup the objects
+	for (int i = 0; i < inventory.size(); i++)
+	{
+		delete inventory[i];
+	}
+	inventory.clear();
+
+	//use heapPistol for stuff
+	//delete it when we're done
+	delete heapPistol;
+	heapPistol = nullptr;
+	if(heapPistol != nullptr)
+		heapPistol->showMe();
+
+	Pistol* pPistol = &p1;
+	pPistol->showMe();
+	(*pPistol).showMe();
+	pPistol->showMe();
 
 	p3.showMe();
 
