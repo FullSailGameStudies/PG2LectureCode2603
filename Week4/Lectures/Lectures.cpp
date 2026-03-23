@@ -12,7 +12,7 @@ int main(int argc, char* args[])
 
 	std::string fileName, path, finalPath;
 	fileName = "2603.csv";
-	path = "";
+	path = "c:\\temp\\2603\\";
 	finalPath = path + fileName;
 	char colDelim = '$', rowDelim = '\n';
 	//1) open the file
