@@ -4,6 +4,7 @@
 #include "Input.h"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 
 int main(int argc, char* args[])
@@ -11,7 +12,7 @@ int main(int argc, char* args[])
 
 	std::string fileName, path, finalPath;
 	fileName = "2603.csv";
-	path = "C:/temp/2603/";
+	path = "";
 	finalPath = path + fileName;
 	char colDelim = '$', rowDelim = '\n';
 	//1) open the file
@@ -20,7 +21,7 @@ int main(int argc, char* args[])
 	{
 		//2) write to the file
 		// << insertion operator
-		outFile << "Batman" << colDelim << 35 << rowDelim;
+		outFile << "Batman" << colDelim << "Age35" << rowDelim;
 		outFile << "Aquaman" << colDelim << 12;
 	}
 	else
@@ -30,6 +31,52 @@ int main(int argc, char* args[])
 	//3) close the file
 	//close it ASAP
 	outFile.close();
+
+
+	std::ifstream inFile(finalPath);
+	//1) open the file
+	if (inFile.is_open())
+	{
+		//2) read the file
+		//read until we reach the end of the file (or stream)
+		while (not inFile.eof())//eof - end of file
+		{
+			//read 1 line from the file
+			std::string line;
+			//reads the file until it encounters
+			//  a '\n' OR the end of the STREAM
+			std::getline(inFile, line);
+			std::cout << line << "\n";
+
+			//parse the line
+			std::string data;
+			std::stringstream lineStream(line);
+			//reads the file until it encounters
+			//  a '$' OR the end of the STREAM
+			std::getline(lineStream, data, colDelim);
+			std::cout << data << "\n";
+
+			std::getline(lineStream, data, colDelim);
+			// try-catch
+			try
+			{
+				int age = std::stoi(data);
+				std::cout << age << "\n";
+			}
+			catch (const std::exception& ex)
+			{
+				std::cout << "ERROR parsing " << data << "\n";
+				std::cout << ex.what() << "\n";
+			}
+		}
+	}
+	else
+	{
+		std::cout << finalPath << " could not be opened.\n";
+	}
+	//3) close the file
+	//close it ASAP
+	inFile.close();
 
 
 	std::string hello = "Hello Week 4!";
