@@ -1,18 +1,43 @@
-#include <iostream>
 #include "Console.h"
 #include "Day10.h"
 #include "Day11.h"
 #include "Input.h"
+#include <fstream>
+#include <iostream>
 
 
 int main(int argc, char* args[])
 {
-    std::string hello = "Hello Week 4!";
-    for (auto& ch : hello)
-    {
-        Console::Write(ch, (ConsoleColor)(rand() % 7 + 1));
-    }
-    std::cout << "\n";
+
+	std::string fileName, path, finalPath;
+	fileName = "2603.csv";
+	path = "C:/temp/2603/";
+	finalPath = path + fileName;
+	char colDelim = '$', rowDelim = '\n';
+	//1) open the file
+	std::ofstream outFile(finalPath);
+	if (outFile.is_open())
+	{
+		//2) write to the file
+		// << insertion operator
+		outFile << "Batman" << colDelim << 35 << rowDelim;
+		outFile << "Aquaman" << colDelim << 12;
+	}
+	else
+	{
+		std::cout << finalPath << " could not be opened.\n";
+	}
+	//3) close the file
+	//close it ASAP
+	outFile.close();
+
+
+	std::string hello = "Hello Week 4!";
+	for (auto& ch : hello)
+	{
+		Console::Write(ch, (ConsoleColor)(rand() % 7 + 1));
+	}
+	std::cout << "\n";
 
 	int menuSelection = 0;
 	std::vector<std::string> menuOptions{
