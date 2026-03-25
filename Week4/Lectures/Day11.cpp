@@ -15,12 +15,40 @@ void SavePosition(const Player& player, std::string fileName, char delimiter)
 	//
 	// Part B-1.3
 	//
+	std::ofstream outFile(fileName);
+	if (outFile.is_open())
+	{
+		player.SerializeCSV(outFile, delimiter);
+		Console::SetCursorPosition(0, 11);
+		std::cout << "SAVED POSITION\n";
+	}
+	else
+	{
+		std::cout << fileName << " could not be opened.\n";
+	}
+	outFile.close();
 }
 void LoadPosition(Player& player, std::string fileName, char delimiter)
 {
 	//
 	// Part B-2.4
 	//
+	std::ifstream inFile(fileName);
+	if (inFile.is_open())
+	{
+		std::string line;
+		std::getline(inFile, line);
+		//Player p2(line, delimiter);
+		//player = p2;//copy the new object
+		player.DeserializeCSV(line, delimiter);
+		Console::SetCursorPosition(0, 11);
+		std::cout << "LOADED POSITION\n";
+	}
+	else
+	{
+		std::cout << fileName << " could not be opened.\n";
+	}
+	inFile.close();
 }
 void Day11::PartB()
 {

@@ -11,14 +11,20 @@ public:
 	//
 	// Part B-1.1
 	//
+	void SerializeCSV(std::ofstream& outFile, char delimiter) const;
 
 	//
 	// Part B-2.1
 	//
+	void DeserializeCSV(const std::string& csvData, char delimiter);
 	
 	//
 	// Part B-2.3
 	//
+	Player(const std::string& csvData, char delimiter)
+	{
+		DeserializeCSV(csvData, delimiter);
+	}
 
 
 	void MoveLeft() { worldX--; }
